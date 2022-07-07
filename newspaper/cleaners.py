@@ -42,7 +42,6 @@ class DocumentCleaner(object):
         self.entries_re = "^[^entry-]more.*$"
         self.facebook_re = "[^-]facebook"
         self.facebook_broadcasting_re = "facebook-broadcasting"
-        self.twitter_re = "[^-]twitter"
         self.tablines_replacements = ReplaceSequence()\
             .create("\n", "\n\n")\
             .append("\t")\
@@ -64,7 +63,6 @@ class DocumentCleaner(object):
         doc_to_clean = self.remove_nodes_regex(doc_to_clean, self.facebook_re)
         doc_to_clean = self.remove_nodes_regex(doc_to_clean,
                                                self.facebook_broadcasting_re)
-        doc_to_clean = self.remove_nodes_regex(doc_to_clean, self.twitter_re)
         doc_to_clean = self.clean_para_spans(doc_to_clean)
         doc_to_clean = self.div_to_para(doc_to_clean, 'div')
         doc_to_clean = self.div_to_para(doc_to_clean, 'span')
